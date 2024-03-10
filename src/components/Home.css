@@ -1,0 +1,33 @@
+.home-page {
+  background-image: url("./Assets/mile1-assets/home-banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4%;
+}
+
+.home-page h1 {
+  color: white;
+  font-weight: bold;
+  font-family: "Barlow";
+}
+
+.home-page p {
+  font-size: 4.25rem;
+  color: white;
+  width: 40%;
+  font-family: "Barlow";
+  font-weight: 300;
+  text-align: center;
+}
+
+.home-page button {
+  color: black;
+  background-color: #fdc913;
+  border-radius: 20px;
+  padding: 0.4rem 2rem;
+}
