@@ -13,13 +13,13 @@ import {
   UncontrolledDropdown,
 } from "reactstrap";
 import CounterPizza from "./pizzacomponents/CounterPizza";
+import SummaryPizza from "./pizzacomponents/SummaryPizza";
 
 export default function OrderPizza({ pizzaData }) {
   return (
     <>
       <header>
         <div className="header-content">
-          <h1 className="title">Teknolojik Yemekler</h1>
           <nav className="nav-links">
             <NavLink
               to="/"
@@ -99,6 +99,24 @@ export default function OrderPizza({ pizzaData }) {
             </div>
           </Col>
         </FormGroup>
+        <FormGroup>
+          <Label for="name">Adınız :</Label>
+          <Input
+            id="name"
+            name="name"
+            placeholder="Adınızı Girin"
+            type="text"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="surname">Soyadınız:</Label>
+          <Input
+            id="surname"
+            name="surname"
+            placeholder="Soyadınızı Girin"
+            type="text"
+          />
+        </FormGroup>
         <FormGroup className="order-note">
           <Label for="exampleText">Sipariş Notu</Label>
           <Input
@@ -117,9 +135,7 @@ export default function OrderPizza({ pizzaData }) {
         <CounterPizza />
 
         <div>
-          <Link to="/SuccessPage">
-            <button /* disabled="false" */>Siparişi Onayla</button>
-          </Link>
+          <SummaryPizza />
         </div>
       </section>
     </>

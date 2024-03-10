@@ -1,28 +1,17 @@
 /* //HEADER// */
 
-header {
-  background-color: #ce2829;
-  width: 100vw;
-  height: 160px;
-  margin: 0 auto;
-  text-align: center;
-}
 .header-content {
-  width: 600px;
-  text-align: center;
-  margin: 0 auto;
+  background-color: #ce2829;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
-
-.title {
-  color: white;
-  margin: 0;
-  padding: 30px 0 10px 0px;
-}
-
 .nav-links {
+  width: 600px;
   display: flex;
   justify-content: flex-start;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 5px;
   color: white;
 }
 .nav-links a {
@@ -104,10 +93,42 @@ header {
   border-radius: 10px 0 0 10px;
 }
 .counter {
-  margin: 20px;
-  border: 1px;
+  padding: 11px 15px;
+  border: 1px solid #faf7f2;
 }
 .button-yellow-right {
   background-color: #fdc913;
   border-radius: 0 10px 10px 0;
+}
+.order-summary {
+  width: 600px;
+  margin: auto;
+  display: flex;
+}
+
+.counter-container {
+  margin: 50px 0px;
+  width: 200px;
+}
+.summary-container {
+  margin: 50px 0px;
+  width: 400px;
+}
+.summary-border {
+  border: 1px solid #faf7f2;
+  border-radius: 10px 10px 0 0;
+}
+.summary-border h5 {
+  padding: 1.5rem 2rem 1rem 2rem;
+}
+.summary-border div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.submit-button {
+  width: 100%;
+  text-align: center;
+  background-color: #fdc913;
+  border-radius: 0 0 7px 7px;
 }

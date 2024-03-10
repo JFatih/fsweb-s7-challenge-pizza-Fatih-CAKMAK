@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../OrderPizza.css";
 function CounterPizza() {
   const [adet, setAdet] = useState(1);
 
@@ -14,7 +14,7 @@ function CounterPizza() {
   };
 
   return (
-    <div>
+    <div className="counter-container">
       <button className="button-yellow-left" onClick={decreaseQuantity}>
         -
       </button>

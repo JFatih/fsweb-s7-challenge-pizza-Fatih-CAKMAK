@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-
+import "./SuccessPage.css";
 export default function SuccessPage() {
   return (
-    <div>
-      <h1>Success</h1>
+    <section className="success-page">
+      <div className="succeed-order">TEBRİKLER! SİPARİŞİNİZ ALINDI!</div>
       <Link to="/">
         <button>AnaSayfaya</button>
       </Link>
-    </div>
+    </section>
   );
 }

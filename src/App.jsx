@@ -8,6 +8,7 @@ import pizzaData from "./components/PizzaData";
 function App() {
   return (
     <div className="main-footer">
+      <h1 className="footer-title">Teknolojik Yemekler</h1>
       <Switch>
         <Route exact path="/">
           <Home />
