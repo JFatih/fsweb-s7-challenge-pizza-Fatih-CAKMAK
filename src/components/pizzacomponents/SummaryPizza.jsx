@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../OrderPizza.css";
-export default function SummaryPizza() {
+export default function SummaryPizza({ isValid }) {
   return (
     <section className="summary-container">
       <div className="summary-border">
@@ -15,7 +15,7 @@ export default function SummaryPizza() {
         </div>
       </div>
       <Link to="/SuccessPage">
-        <button /* disabled="false" */ className="submit-button">
+        <button disabled={isValid} className="submit-button">
           Siparişi Ver
         </button>
       </Link>
