@@ -1,25 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../OrderPizza.css";
-function CounterPizza() {
-  const [adet, setAdet] = useState(1);
-
-  const decreaseQuantity = () => {
-    if (adet > 1) {
-      setAdet(adet - 1);
+function CounterPizza({ setPizzaCount, pizzaCount, handleChange }) {
+  const arttır = () => {
+    if (pizzaCount > 1) {
+      setPizzaCount(pizzaCount - 1);
     }
   };
 
-  const increaseQuantity = () => {
-    setAdet(adet + 1);
+  const azalt = () => {
+    setPizzaCount(pizzaCount + 1);
   };
 
   return (
     <div className="counter-container">
-      <button className="button-yellow-left" onClick={decreaseQuantity}>
+      <button className="button-yellow-left" onClick={arttır}>
         -
       </button>
-      <span className="counter">{adet}</span>
-      <button className="button-yellow-right" onClick={increaseQuantity}>
+      <span className="counter">{pizzaCount}</span>
+      <button className="button-yellow-right" onClick={azalt}>
         +
       </button>
     </div>

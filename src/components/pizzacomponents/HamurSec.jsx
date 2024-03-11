@@ -7,20 +7,19 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-export default function HamurSec({ hamurKalınlıgı, handleChange }) {
-  const [defaultName, setDefaultName] = useState("Hamur Kalınlığı");
+export default function HamurSec({ hamurKalınlıgı, handleChange, orderForm }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   const handleChange1 = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setDefaultName(value);
   };
 
   return (
     <div className="d-flex p-5">
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret>{defaultName}</DropdownToggle>
+        <DropdownToggle caret>{orderForm.hamurKalınlıgı}</DropdownToggle>
         <DropdownMenu>
           {hamurKalınlıgı.map((kalınlık) => (
             <DropdownItem

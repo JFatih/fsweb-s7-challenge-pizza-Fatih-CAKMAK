@@ -4,32 +4,86 @@ import { Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 import CounterPizza from "./pizzacomponents/CounterPizza";
 import SummaryPizza from "./pizzacomponents/SummaryPizza";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HamurSec from "./pizzacomponents/HamurSec";
+import axios from "axios";
 
 const initialValues = {
   boyutSec: "",
-  hamurKalınlıgı: "",
+  hamurKalınlıgı: "Kalınlığı seçin",
   ekMalzemeler: [],
   adı: "",
   soyadı: "",
   yorum: "",
+  adet: "",
+  secimler: 0,
+  toplam: 0,
 };
 
 export default function OrderPizza({ pizzaData }) {
   const [isValid, setIsValid] = useState(true);
-  const [formData, setFormData] = useState(initialValues);
-  const [errors, setErrors] = useState({
-    boyutSec: false,
-    hamurKalınlıgı: false,
-  });
+  const [orderForm, setOrderForm] = useState(initialValues);
+  const [toplamFiyat, setToplamFiyat] = useState(0);
+  const [secimlerFiyat, setSecimlerFiyat] = useState(0);
+  const [pizzaCount, setPizzaCount] = useState(1);
+
+  useEffect(() => {
+    if (
+      orderForm.boyutSec &&
+      orderForm.hamurKalınlıgı &&
+      orderForm.ekMalzemeler.length >= 4 &&
+      orderForm.ekMalzemeler.length <= 10 &&
+      orderForm.adı.trim().length >= 3 &&
+      orderForm.soyadı.trim().length >= 3
+    ) {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
+    orderForm.secimler = secimlerFiyat;
+    orderForm.toplam = toplamFiyat;
+    orderForm.adet = pizzaCount;
+    setSecimlerFiyat(Number(orderForm.ekMalzemeler.length * 5 * pizzaCount));
+    setToplamFiyat(secimlerFiyat + pizzaData.fiyat * pizzaCount);
+  }, [orderForm]);
+
+  useEffect(() => {
+    setSecimlerFiyat(Number(orderForm.ekMalzemeler.length * 5 * pizzaCount));
+    setToplamFiyat(secimlerFiyat + pizzaData.fiyat * pizzaCount);
+  }, [pizzaCount]);
 
   const handleChange = (event) => {
     const { name, value, checked } = event.target;
-    setFormData({ ...formData, [name]: value });
-    console.log(formData);
+    if (name === "ekMalzemeler") {
+      if (checked) {
+        setOrderForm({
+          ...orderForm,
+          ekMalzemeler: [...orderForm.ekMalzemeler, value],
+        });
+      } else {
+        setOrderForm({
+          ...orderForm,
+          ekMalzemeler: orderForm.ekMalzemeler.filter(
+            (malzeme) => malzeme !== value
+          ),
+        });
+      }
+    } else {
+      setOrderForm({
+        ...orderForm,
+        [name]: value,
+      });
+    }
   };
 
+  const handleSubmit = (event) => {
+    axios
+      .post("https://reqres.in/api/pizza", orderForm)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => console.warn(error));
+  };
   return (
     <>
       <header>
@@ -95,6 +149,7 @@ export default function OrderPizza({ pizzaData }) {
             <HamurSec
               hamurKalınlıgı={pizzaData.hamurKalınlıgı}
               handleChange={handleChange}
+              orderForm={orderForm}
             />
           </Form>
         </div>
@@ -111,7 +166,7 @@ export default function OrderPizza({ pizzaData }) {
                       name="ekMalzemeler"
                       value={malzeme}
                       onChange={handleChange}
-                      checked={formData.ekMalzemeler.includes(malzeme)}
+                      checked={orderForm.ekMalzemeler.includes(malzeme)}
                     />{" "}
                     <Label for={malzeme} check>
                       {malzeme}
@@ -130,7 +185,7 @@ export default function OrderPizza({ pizzaData }) {
             placeholder="Adınızı Girin"
             type="text"
             onChange={handleChange}
-            value={formData.adı}
+            value={orderForm.adı}
           />
         </FormGroup>
         <FormGroup>
@@ -140,20 +195,20 @@ export default function OrderPizza({ pizzaData }) {
             name="soyadı"
             placeholder="Soyadınızı Girin"
             type="text"
-            value={formData.soyadı}
+            value={orderForm.soyadı}
             onChange={handleChange}
           />
         </FormGroup>
         <FormGroup className="order-note">
-          <Label for="exampleText">Sipariş Notu</Label>
+          <Label for="yorum">Sipariş Notu</Label>
           <Input
-            id="exampleText"
-            name="text"
+            id="yorum"
+            name="yorum"
             type="textarea"
             placeholder="Siparişine eklemek istediğin bir not var mı ?"
             row="5"
             onChange={handleChange}
-            value={formData.yorum}
+            /* value={orderForm.yorum} */
           />
         </FormGroup>
       </section>
@@ -161,9 +216,21 @@ export default function OrderPizza({ pizzaData }) {
         <div class="grey-line"></div>
       </div>
       <section className="order-summary">
-        <CounterPizza />
+        <CounterPizza
+          setPizzaCount={setPizzaCount}
+          pizzaCount={pizzaCount}
+          handleChange={handleChange}
+        />
         <div>
-          <SummaryPizza isValid={isValid} />
+          <SummaryPizza
+            isValid={isValid}
+            pizzaCount={pizzaCount}
+            orderForm={orderForm}
+            pizzaData={pizzaData.fiyat}
+            secimlerFiyat={secimlerFiyat}
+            toplamFiyat={toplamFiyat}
+            handleSubmit={handleSubmit}
+          />
         </div>
       </section>
     </>
