@@ -20,11 +20,7 @@ export default function SummaryPizza({
         </div>
       </div>
       <Link to="/SuccessPage">
-        <button
-          onClick={handleSubmit}
-          disabled={isValid}
-          className="submit-button"
-        >
+        <button disabled={isValid} className="submit-button">
           Siparişi Ver
         </button>
       </Link>

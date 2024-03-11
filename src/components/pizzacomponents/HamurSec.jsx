@@ -17,7 +17,7 @@ export default function HamurSec({ hamurKalınlıgı, handleChange, orderForm })
   };
 
   return (
-    <div className="d-flex p-5">
+    <div>
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>{orderForm.hamurKalınlıgı}</DropdownToggle>
         <DropdownMenu>

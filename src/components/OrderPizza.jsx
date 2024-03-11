@@ -77,6 +77,7 @@ export default function OrderPizza({ pizzaData }) {
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     axios
       .post("https://reqres.in/api/pizza", orderForm)
       .then((response) => {
@@ -111,128 +112,132 @@ export default function OrderPizza({ pizzaData }) {
           </nav>
         </div>
       </header>
-      <section className="data-container">
-        <h3>{pizzaData.pizaAdı}</h3>
-        <div className="header-data">
-          <h2>{pizzaData.fiyat}₺</h2>
-          <div className="header-rating">
-            <p>{pizzaData.yıldız}⭐⭐⭐⭐⭐</p>
-            <p>{pizzaData.yorum}</p>
+      <Form onSubmit={handleSubmit} className="form-data">
+        <section className="data-container">
+          <h3>{pizzaData.pizaAdı}</h3>
+          <div className="header-data">
+            <h2>{pizzaData.fiyat}₺</h2>
+            <div className="header-rating">
+              <p>{pizzaData.yıldız}⭐⭐⭐⭐⭐</p>
+              <p>{pizzaData.yorum}</p>
+            </div>
           </div>
-        </div>
-        <p>{pizzaData.acıklama}</p>
-      </section>
-      <section className="choose-container">
-        <div className="boyut-hamur">
-          <Form className="boyut-sec">
-            <h5>Boyut Seç</h5>
-            {pizzaData.boyutSec.map((boyut) => {
-              return (
-                <FormGroup check>
-                  <Input
-                    name="boyutSec"
-                    onChange={handleChange}
-                    id={boyut}
-                    type="radio"
-                    value={boyut}
-                    key={boyut}
-                  />{" "}
-                  <Label for={boyut} check>
-                    {boyut}
-                  </Label>
-                </FormGroup>
-              );
-            })}
-          </Form>
-          <Form className="hamur-sec">
-            <h5>Hamur Seç</h5>
-            <HamurSec
-              hamurKalınlıgı={pizzaData.hamurKalınlıgı}
-              handleChange={handleChange}
-              orderForm={orderForm}
-            />
-          </Form>
-        </div>
-        <FormGroup className="checkbox2">
-          <Label sm={3}>Ek Malzemeler</Label>
-          <Col>
-            <div className="icerikler">
-              {pizzaData.ekMalzemeler.map((malzeme) => {
+          <p>{pizzaData.acıklama}</p>
+        </section>
+        <section className="choose-container">
+          <div className="boyut-hamur">
+            <FormGroup className="boyut-sec">
+              <h5>Boyut Seç</h5>
+              {pizzaData.boyutSec.map((boyut) => {
                 return (
-                  <FormGroup check className="icerik" key={malzeme}>
+                  <FormGroup check>
                     <Input
-                      id={malzeme}
-                      type="checkbox"
-                      name="ekMalzemeler"
-                      value={malzeme}
+                      name="boyutSec"
                       onChange={handleChange}
-                      checked={orderForm.ekMalzemeler.includes(malzeme)}
+                      id={boyut}
+                      type="radio"
+                      value={boyut}
+                      key={boyut}
                     />{" "}
-                    <Label for={malzeme} check>
-                      {malzeme}
+                    <Label for={boyut} check>
+                      {boyut}
                     </Label>
                   </FormGroup>
                 );
               })}
-            </div>
-          </Col>
-        </FormGroup>
-        <FormGroup>
-          <Label for="adı">Adınız :</Label>
-          <Input
-            id="adı"
-            name="adı"
-            placeholder="Adınızı Girin"
-            type="text"
-            onChange={handleChange}
-            value={orderForm.adı}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="soyadı">Soyadınız:</Label>
-          <Input
-            id="soyadı"
-            name="soyadı"
-            placeholder="Soyadınızı Girin"
-            type="text"
-            value={orderForm.soyadı}
-            onChange={handleChange}
-          />
-        </FormGroup>
-        <FormGroup className="order-note">
-          <Label for="yorum">Sipariş Notu</Label>
-          <Input
-            id="yorum"
-            name="yorum"
-            type="textarea"
-            placeholder="Siparişine eklemek istediğin bir not var mı ?"
-            row="5"
-            onChange={handleChange}
-            /* value={orderForm.yorum} */
-          />
-        </FormGroup>
-      </section>
-      <div className="line">
-        <div class="grey-line"></div>
-      </div>
-      <section className="order-summary">
-        <CounterPizza
-          setPizzaCount={setPizzaCount}
-          pizzaCount={pizzaCount}
-          handleChange={handleChange}
-        />
-        <div>
-          <SummaryPizza
-            isValid={isValid}
-            pizzaCount={pizzaCount}
-            orderForm={orderForm}
-            pizzaData={pizzaData.fiyat}
-            secimlerFiyat={secimlerFiyat}
-            toplamFiyat={toplamFiyat}
-            handleSubmit={handleSubmit}
-          />
+            </FormGroup>
+            <FormGroup className="hamur-sec">
+              <h5>Hamur Seç</h5>
+              <HamurSec
+                hamurKalınlıgı={pizzaData.hamurKalınlıgı}
+                handleChange={handleChange}
+                orderForm={orderForm}
+              />
+            </FormGroup>
+          </div>
+          <FormGroup className="checkbox2">
+            <Label sm={3}>Ek Malzemeler</Label>
+            <Col>
+              <div className="icerikler">
+                {pizzaData.ekMalzemeler.map((malzeme) => {
+                  return (
+                    <FormGroup check className="icerik" key={malzeme}>
+                      <Input
+                        id={malzeme}
+                        type="checkbox"
+                        name="ekMalzemeler"
+                        value={malzeme}
+                        onChange={handleChange}
+                        checked={orderForm.ekMalzemeler.includes(malzeme)}
+                      />{" "}
+                      <Label for={malzeme} check>
+                        {malzeme}
+                      </Label>
+                    </FormGroup>
+                  );
+                })}
+              </div>
+            </Col>
+          </FormGroup>
+          <FormGroup className="ad-soyad">
+            <FormGroup>
+              <Label for="adı">Adınız :</Label>
+              <Input
+                id="adı"
+                name="adı"
+                placeholder="Adınızı Girin"
+                type="text"
+                onChange={handleChange}
+                value={orderForm.adı}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="soyadı">Soyadınız:</Label>
+              <Input
+                id="soyadı"
+                name="soyadı"
+                placeholder="Soyadınızı Girin"
+                type="text"
+                value={orderForm.soyadı}
+                onChange={handleChange}
+              />
+            </FormGroup>
+          </FormGroup>
+          <FormGroup className="order-note">
+            <Label for="yorum">Sipariş Notu</Label>
+            <Input
+              id="yorum"
+              name="yorum"
+              type="textarea"
+              placeholder="Siparişine eklemek istediğin bir not var mı ?"
+              row="5"
+              onChange={handleChange}
+              /* value={orderForm.yorum} */
+            />
+          </FormGroup>
+        </section>
+        <div className="line">
+          <div class="grey-line"></div>
         </div>
-      </section>
+        <section className="order-summary">
+          <CounterPizza
+            setPizzaCount={setPizzaCount}
+            pizzaCount={pizzaCount}
+            handleChange={handleChange}
+          />
+          <div>
+            <SummaryPizza
+              isValid={isValid}
+              pizzaCount={pizzaCount}
+              orderForm={orderForm}
+              pizzaData={pizzaData.fiyat}
+              secimlerFiyat={secimlerFiyat}
+              toplamFiyat={toplamFiyat}
+              handleSubmit={handleSubmit}
+            />
+          </div>
+        </section>
+      </Form>
     </>
   );
 }
