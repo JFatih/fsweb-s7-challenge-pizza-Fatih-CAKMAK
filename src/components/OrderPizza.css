@@ -25,17 +25,20 @@
   text-align: start;
   width: 600px;
   margin: auto;
+  row-gap: 2vh;
+}
+.data-container h3 {
+  margin: 20px 0px;
 }
 .header-data {
   display: flex;
+  margin: auto 0;
   justify-content: space-between;
 }
 .header-rating {
   display: flex;
-  gap: 1rem;
-  align-content: center;
-  padding: auto 0;
-  margin-bottom: 0;
+  align-items: center;
+  margin: auto;
 }
 /* //CHOOSE-CONTAİNER // */
 .choose-container {
@@ -131,4 +134,7 @@
   text-align: center;
   background-color: #fdc913;
   border-radius: 0 0 7px 7px;
+}
+.d-flex .p-5 {
+  padding: 0 !important;
 }
