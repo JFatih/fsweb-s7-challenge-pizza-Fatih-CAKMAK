@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../OrderPizza.css";
+import { Button, Form } from "reactstrap";
 export default function SummaryPizza({
   isValid,
   secimlerFiyat,
@@ -19,11 +20,14 @@ export default function SummaryPizza({
           <p>{toplamFiyat} ₺</p>
         </div>
       </div>
-      <Link to="/SuccessPage">
-        <button disabled={isValid} className="submit-button">
-          Siparişi Ver
-        </button>
-      </Link>
+      <Button
+        disabled={isValid}
+        className="submit-button"
+        data-cy="submit-button"
+        type="submit"
+      >
+        Siparişi Ver
+      </Button>
     </section>
   );
 }

@@ -1,16 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import "./OrderPizza.css";
 import { Col, Form, FormGroup, Input, Label } from "reactstrap";
-
 import CounterPizza from "./pizzacomponents/CounterPizza";
 import SummaryPizza from "./pizzacomponents/SummaryPizza";
 import { useEffect, useState } from "react";
 import HamurSec from "./pizzacomponents/HamurSec";
 import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const initialValues = {
   boyutSec: "",
-  hamurKalınlıgı: "Kalınlığı seçin",
+  hamurKalınlıgı: "",
   ekMalzemeler: [],
   adı: "",
   soyadı: "",
@@ -26,6 +26,8 @@ export default function OrderPizza({ pizzaData }) {
   const [toplamFiyat, setToplamFiyat] = useState(0);
   const [secimlerFiyat, setSecimlerFiyat] = useState(0);
   const [pizzaCount, setPizzaCount] = useState(1);
+
+  const history = useHistory();
 
   useEffect(() => {
     if (
@@ -44,12 +46,18 @@ export default function OrderPizza({ pizzaData }) {
     orderForm.toplam = toplamFiyat;
     orderForm.adet = pizzaCount;
     setSecimlerFiyat(Number(orderForm.ekMalzemeler.length * 5 * pizzaCount));
-    setToplamFiyat(secimlerFiyat + pizzaData.fiyat * pizzaCount);
+    setToplamFiyat(
+      orderForm.ekMalzemeler.length * 5 * pizzaCount +
+        pizzaData.fiyat * pizzaCount
+    );
   }, [orderForm]);
 
   useEffect(() => {
     setSecimlerFiyat(Number(orderForm.ekMalzemeler.length * 5 * pizzaCount));
-    setToplamFiyat(secimlerFiyat + pizzaData.fiyat * pizzaCount);
+    setToplamFiyat(
+      orderForm.ekMalzemeler.length * 5 * pizzaCount +
+        pizzaData.fiyat * pizzaCount
+    );
   }, [pizzaCount]);
 
   const handleChange = (event) => {
@@ -76,15 +84,20 @@ export default function OrderPizza({ pizzaData }) {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .post("https://reqres.in/api/pizza", orderForm)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => console.warn(error));
+    try {
+      const response = await axios.post(
+        "https://reqres.in/api/pizza",
+        orderForm
+      );
+      console.log(response.data);
+      history.push("/SuccessPage");
+    } catch (error) {
+      console.warn(error);
+    }
   };
+
   return (
     <>
       <header>
@@ -138,6 +151,7 @@ export default function OrderPizza({ pizzaData }) {
                       type="radio"
                       value={boyut}
                       key={boyut}
+                      data-cy="data-boyut"
                     />{" "}
                     <Label for={boyut} check>
                       {boyut}
@@ -169,6 +183,7 @@ export default function OrderPizza({ pizzaData }) {
                         value={malzeme}
                         onChange={handleChange}
                         checked={orderForm.ekMalzemeler.includes(malzeme)}
+                        data-cy="input-malzemeler"
                       />{" "}
                       <Label for={malzeme} check>
                         {malzeme}
@@ -189,6 +204,7 @@ export default function OrderPizza({ pizzaData }) {
                 type="text"
                 onChange={handleChange}
                 value={orderForm.adı}
+                data-cy="input-ad"
               />
             </FormGroup>
             <FormGroup>
@@ -200,6 +216,7 @@ export default function OrderPizza({ pizzaData }) {
                 type="text"
                 value={orderForm.soyadı}
                 onChange={handleChange}
+                data-cy="input-soyad"
               />
             </FormGroup>
           </FormGroup>

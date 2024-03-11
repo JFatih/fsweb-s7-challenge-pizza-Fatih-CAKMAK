@@ -19,7 +19,11 @@ export default function HamurSec({ hamurKalınlıgı, handleChange, orderForm })
   return (
     <div>
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle caret>{orderForm.hamurKalınlıgı}</DropdownToggle>
+        <DropdownToggle caret>
+          {orderForm.hamurKalınlıgı
+            ? orderForm.hamurKalınlıgı
+            : "Hamur Kalınlığı"}
+        </DropdownToggle>
         <DropdownMenu>
           {hamurKalınlıgı.map((kalınlık) => (
             <DropdownItem
@@ -27,6 +31,7 @@ export default function HamurSec({ hamurKalınlıgı, handleChange, orderForm })
               onClick={(handleChange1, handleChange)}
               value={kalınlık}
               name="hamurKalınlıgı"
+              data-cy="data-kalınlık"
             >
               {kalınlık}
             </DropdownItem>
