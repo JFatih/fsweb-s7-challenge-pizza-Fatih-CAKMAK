@@ -1,3 +1,7 @@
+.Bold {
+  font-weight: 500;
+}
+
 .success-page {
   background-color: #ce2829;
   width: 100vw;
@@ -5,18 +9,63 @@
   color: white;
   display: flex;
   flex-direction: column;
-
   align-items: center;
+  row-gap: 1rem;
 }
-.succeed-order {
-  padding-top: 15vh;
-  font-size: 3rem;
-  width: 30%;
+
+.success-comment {
+  margin-top: 6vh;
+  margin-bottom: 4vh;
   text-align: center;
 }
-.success-page button {
-  margin: 5vh;
-  background-color: #fdc913;
-  border-radius: 7px;
-  color: #292929;
+
+header .baslık1 {
+  font-family: "Satisfy";
+  color: #fdc913;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+header .baslık2 {
+  margin-top: 0;
+  font-family: "Barlow";
+  color: white;
+  font-size: 4rem;
+  font-weight: 200;
+}
+.grey-line {
+  border: 1px solid white;
+}
+
+.Center {
+  text-align: center;
+}
+
+.pizza-data div {
+  font-size: small;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 20vh;
+  align-content: center;
+  margin: auto;
+  font-size: 0.7rem;
+}
+.pizza-data p {
+  font-family: Barlow;
+}
+
+.pizza-bill {
+  width: 40vh;
+  border: 1px solid white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+.pizza-bill div {
+  display: flex;
+  justify-content: space-between;
 }

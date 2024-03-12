@@ -1,6 +1,6 @@
 const pizzaData = {
   id: 1,
-  pizaAdı: "Position Absolute Acı Pizza",
+  pizzaAdı: "Position Absolute Acı Pizza",
   fiyat: 85.5,
   yıldız: 4.9,
   yorum: 200,

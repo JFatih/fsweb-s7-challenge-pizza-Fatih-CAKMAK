@@ -4,8 +4,23 @@ import OrderPizza from "./components/OrderPizza";
 import Home from "./components/Home";
 import SuccessPage from "./components/SuccessPage";
 import pizzaData from "./components/PizzaData";
+import { useState } from "react";
+
+const initialValues = {
+  pizzaAdı: "",
+  boyutSec: "",
+  hamurKalınlıgı: "",
+  ekMalzemeler: [],
+  adı: "",
+  soyadı: "",
+  yorum: "",
+  adet: "",
+  secimler: 0,
+  toplam: 0,
+};
 
 function App() {
+  const [orderForm, setOrderForm] = useState(initialValues);
   return (
     <div className="main-footer">
       <h1 className="footer-title">Teknolojik Yemekler</h1>
@@ -14,10 +29,14 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/OrderPizza">
-          <OrderPizza pizzaData={pizzaData} />
+          <OrderPizza
+            pizzaData={pizzaData}
+            setOrderForm={setOrderForm}
+            orderForm={orderForm}
+          />
         </Route>
         <Route exact path="/SuccessPage">
-          <SuccessPage />
+          <SuccessPage orderForm={orderForm} />
         </Route>
       </Switch>
     </div>

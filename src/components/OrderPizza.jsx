@@ -8,21 +8,13 @@ import HamurSec from "./pizzacomponents/HamurSec";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
-const initialValues = {
-  boyutSec: "",
-  hamurKalınlıgı: "",
-  ekMalzemeler: [],
-  adı: "",
-  soyadı: "",
-  yorum: "",
-  adet: "",
-  secimler: 0,
-  toplam: 0,
-};
-
-export default function OrderPizza({ pizzaData }) {
+export default function OrderPizza({
+  pizzaData,
+  initialValues,
+  setOrderForm,
+  orderForm,
+}) {
   const [isValid, setIsValid] = useState(true);
-  const [orderForm, setOrderForm] = useState(initialValues);
   const [toplamFiyat, setToplamFiyat] = useState(0);
   const [secimlerFiyat, setSecimlerFiyat] = useState(0);
   const [pizzaCount, setPizzaCount] = useState(1);
@@ -42,6 +34,7 @@ export default function OrderPizza({ pizzaData }) {
     } else {
       setIsValid(true);
     }
+    orderForm.pizzaAdı = pizzaData.pizzaAdı;
     orderForm.secimler = secimlerFiyat;
     orderForm.toplam = toplamFiyat;
     orderForm.adet = pizzaCount;
@@ -234,7 +227,7 @@ export default function OrderPizza({ pizzaData }) {
           </FormGroup>
         </section>
         <div className="line">
-          <div class="grey-line"></div>
+          <div className="grey-line"></div>
         </div>
         <section className="order-summary">
           <CounterPizza
