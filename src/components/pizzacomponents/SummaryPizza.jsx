@@ -20,14 +20,14 @@ export default function SummaryPizza({
           <p>{toplamFiyat} ₺</p>
         </div>
       </div>
-      <Button
+      <button
         disabled={isValid}
         className="submit-button"
         data-cy="submit-button"
         type="submit"
       >
         Siparişi Ver
-      </Button>
+      </button>
     </section>
   );
 }
