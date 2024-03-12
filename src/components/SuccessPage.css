@@ -69,3 +69,6 @@ header .baslık2 {
   display: flex;
   justify-content: space-between;
 }
+.pizza-bill p {
+  margin-bottom: auto;
+}

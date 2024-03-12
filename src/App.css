@@ -3,9 +3,10 @@
   max-height: 1080px;
   margin: 0;
   padding: 0rem;
-  margin: 0;
   padding: 0;
+  min-width: 600px;
 }
+
 .main-footer .footer-title {
   color: white;
   background-color: #ce2829;
@@ -19,4 +20,56 @@
   font-family: "Barlow";
   margin: 0;
   width: 100vw;
+}
+.footer-bottom {
+  width: 100vw;
+  height: 40vh;
+  background-color: #292929;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  align-items: center;
+}
+.footer-data {
+  display: flex;
+  gap: 3rem;
+  width: 40vw;
+}
+.footer-info div {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.footer-menu h4 {
+  padding-bottom: 1rem;
+}
+.footer-menu > p {
+  font-size: 0.9rem;
+  padding-bottom: 0.2rem;
+}
+.footer-social {
+  display: flex;
+  width: 20%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.footer-social img {
+  padding: 0.3rem;
+  width: 5rem;
+}
+
+.footer-bottom p {
+  margin-bottom: 0 !important;
+}
+
+.grey-line {
+  border: 1px solid white;
+}
+.footer-copyright {
+  width: 100vw;
+  background-color: #292929;
+  color: white;
 }
