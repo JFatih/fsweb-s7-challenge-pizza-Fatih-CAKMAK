@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./OrderPizza.css";
-import { Col, Form, FormGroup, Input, Label } from "reactstrap";
+import { Alert, Col, Form, FormGroup, Input, Label } from "reactstrap";
 import CounterPizza from "./pizzacomponents/CounterPizza";
 import SummaryPizza from "./pizzacomponents/SummaryPizza";
 import { useEffect, useState } from "react";
@@ -87,7 +87,7 @@ export default function OrderPizza({
       console.log(response.data);
       history.push("/SuccessPage");
     } catch (error) {
-      console.warn(error);
+      alert(error);
     }
   };
 

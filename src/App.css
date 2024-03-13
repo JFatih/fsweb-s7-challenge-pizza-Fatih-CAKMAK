@@ -6,7 +6,6 @@
   padding: 0;
   min-width: 600px;
 }
-
 .main-footer .footer-title {
   color: white;
   background-color: #ce2829;
@@ -23,53 +22,62 @@
 }
 .footer-bottom {
   width: 100vw;
-  height: 40vh;
+  height: 18vw;
   background-color: #292929;
   color: white;
   display: flex;
-  justify-content: space-around;
-  font-size: 0.8rem;
+  align-items: center;
+  font-family: "Roboto Condensed";
+}
+.footer-bottom p {
+  margin: 0 !important;
+}
+.footer-section {
+  margin: auto;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .footer-data {
   display: flex;
-  gap: 3rem;
-  width: 40vw;
+  width: 600;
 }
+.footer-social {
+  width: 240px;
+}
+.footer-info {
+  margin-right: 30px;
+}
+
 .footer-info div {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
 }
-.footer-menu h4 {
-  padding-bottom: 1rem;
-}
-.footer-menu > p {
-  font-size: 0.9rem;
-  padding-bottom: 0.2rem;
-}
-.footer-social {
-  display: flex;
-  width: 20%;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 1rem;
-}
-
 .footer-social img {
   padding: 0.3rem;
   width: 5rem;
+  border-radius: 2px;
 }
-
-.footer-bottom p {
-  margin-bottom: 0 !important;
+.line {
+  border: 0.2px solid#5F5F5F;
 }
-
-.grey-line {
-  border: 1px solid white;
-}
-.footer-copyright {
+.copyRight {
+  margin: auto;
+  height: 5vh;
   width: 100vw;
   background-color: #292929;
   color: white;
+  display: flex;
+}
+.copyRight p {
+  margin-bottom: 0 !important;
+}
+.footer-copyright {
+  width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
 }
