@@ -1,13 +1,5 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-} from "reactstrap";
 
 export default function Home() {
   return (
@@ -74,7 +66,7 @@ export default function Home() {
         </container>
         <main>
           <p className="Satisfy">en çok paketlenen menüler</p>
-          <p>Acıktıran Kodlara Doyuran Lezzetler</p>
+          <p className="barlow">Acıktıran Kodlara Doyuran Lezzetler</p>
           <div>
             <button>
               <img src="/Assets/mile2-aseets/icons/1.svg" alt="Heart Icon" />
@@ -101,25 +93,25 @@ export default function Home() {
               Soft drinks
             </button>
           </div>
-          <div className="Pizza-container">
-            <div className="pizza 1">
-              <p>Terminal Pizza</p>
+          <div className="product-container">
+            <div className="product one">
+              <h6>Terminal Pizza</h6>
               <div>
                 <p>4.9</p>
                 <p>(200)</p>
                 <p>60Tl</p>
               </div>
             </div>
-            <div className="pizza 2">
-              <p>Position Absolute Acı Pizza</p>
+            <div className="product two">
+              <h6>Position Absolute Acı Pizza</h6>
               <div>
                 <p>4.9</p>
                 <p>(928)</p>
                 <p>85Tl</p>
               </div>
             </div>
-            <div className="pizza 3">
-              <p>useEffect Tavuklu Burger</p>
+            <div className="product three">
+              <h6>useEffect Tavuklu Burger</h6>
               <div>
                 <p>4.9</p>
                 <p>(482)</p>

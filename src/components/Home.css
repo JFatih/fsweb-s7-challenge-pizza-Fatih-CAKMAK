@@ -54,7 +54,7 @@
 
 .home-body {
   width: 100vw;
-  height: 100vw;
+  height: 70vw;
   background-color: #faf7f2;
 }
 
@@ -215,7 +215,7 @@ main {
   font-size: 1.5rem;
 }
 
-main p:nth-child(2) {
+.barlow {
   color: #292929;
   font-family: "Barlow";
   font-size: 1.8rem;
@@ -230,15 +230,63 @@ main button img {
 
 main button {
   border-radius: 30px;
+  background-color: white;
 }
-.Pizza-container {
+.product-container {
   margin: 20px 0;
   display: flex;
+  justify-content: space-around;
   gap: 1rem;
 }
-.pizza {
+.product {
   width: 250px;
   height: 250px;
-  border: 1px solid red;
+
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  justify-content: end;
+  text-align: start;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background-size: 180px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 10px;
+}
+
+.product p,
+h6 {
+  margin-bottom: 0.2rem !important;
+}
+
+.product div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product h6 {
+  font-weight: bold;
+}
+
+.product p:nth-child(3) {
+  font-weight: bold;
+}
+
+.product.one {
+  background-image: url("../../Assets/mile2-aseets/pictures/food-1.png");
+}
+
+.product.two {
+  background-image: url("../../Assets/mile2-aseets/pictures/food-2.png");
+}
+
+.product.three {
+  background-image: url("../../Assets/mile2-aseets/pictures/food-3.png");
+}
+
+main button:nth-child(2) {
+  background-color: #292929;
+  color: white;
 }
