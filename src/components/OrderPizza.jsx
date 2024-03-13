@@ -6,7 +6,8 @@ import SummaryPizza from "./pizzacomponents/SummaryPizza";
 import { useEffect, useState } from "react";
 import HamurSec from "./pizzacomponents/HamurSec";
 import axios from "axios";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { Route, useHistory } from "react-router-dom/cjs/react-router-dom";
+import { Router } from "react-router-dom";
 
 export default function OrderPizza({
   pizzaData,
@@ -93,36 +94,41 @@ export default function OrderPizza({
 
   return (
     <>
-      <header>
-        <div className="header-content">
-          <nav className="nav-links">
-            <NavLink
-              to="/"
-              activeClassName="selected"
-              activeStyle={{
-                color: "white",
-              }}
-            >
-              Anasayfa
-            </NavLink>
+      <nav className="order-page">
+        <div className="order-content">
+          <img src="../../Assets/mile2-aseets/pictures/form-banner.png" />
+          <ul className="nav-links">
+            <li>
+              <NavLink
+                to="/"
+                activeClassName="selected"
+                activeStyle={{
+                  color: "#292929",
+                }}
+              >
+                Anasayfa
+              </NavLink>
+            </li>
             <> - </>
-            <NavLink
-              to="/OrderPizza"
-              activeStyle={{
-                fontWeight: "bold",
-                color: "white",
-              }}
-            >
-              Sipariş Oluştur
-            </NavLink>
-          </nav>
+            <li>
+              <NavLink
+                to="/OrderPizza"
+                activeStyle={{
+                  fontWeight: "bold",
+                  color: "#CE2829",
+                }}
+              >
+                Sipariş Oluştur
+              </NavLink>
+            </li>
+          </ul>
         </div>
-      </header>
+      </nav>
       <Form onSubmit={handleSubmit} className="form-data">
-        <section className="data-container">
-          <h3>{pizzaData.pizaAdı}</h3>
-          <div className="header-data">
-            <h2>{pizzaData.fiyat}₺</h2>
+        <section className="order-container">
+          <h3>{pizzaData.pizzaAdı}</h3>
+          <div className="order-data">
+            <h2>{pizzaData.fiyat}₺</h2>s
             <div className="header-rating">
               <p>{pizzaData.yıldız}⭐⭐⭐⭐⭐</p>
               <p>{pizzaData.yorum}</p>
