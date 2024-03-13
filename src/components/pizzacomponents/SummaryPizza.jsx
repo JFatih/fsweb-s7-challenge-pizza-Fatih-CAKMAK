@@ -10,7 +10,7 @@ export default function SummaryPizza({
   return (
     <section className="summary-container">
       <div className="summary-border">
-        <h5>Sipariş Toplamı</h5>
+        <p className="summary-head">Sipariş Toplamı</p>
         <div>
           <p>Seçimler</p>
           <p>{secimlerFiyat} ₺</p>

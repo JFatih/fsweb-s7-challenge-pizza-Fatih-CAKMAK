@@ -197,10 +197,13 @@ p {
 .summary-border {
   background-color: #faf7f2;
   border-radius: 10px 10px 0 0;
+  font-weight: 600;
 }
-.summary-border h5 {
+.summary-head {
   padding: 1.5rem 2rem 0.3rem 2rem;
   color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .summary-border div {
   display: flex;
@@ -213,6 +216,6 @@ p {
   background-color: #fdc913;
   border-radius: 0 0 7px 7px;
 }
-.d-flex .p-5 {
-  padding: 0 !important;
+.summary-border div:nth-child(3) {
+  color: #ce2829;
 }

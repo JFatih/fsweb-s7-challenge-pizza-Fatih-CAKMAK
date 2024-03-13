@@ -4,12 +4,12 @@ import "./Home.css";
 export default function Home() {
   return (
     <>
-      <header className="home-page">
+      <section className="home-page">
         <p>KOD ACIKTIRIR PİZZA, DOYURUR</p>
         <Link to="/OrderPizza" className="btn" data-cy="OrderPage-Button">
           <button>Acıktım</button>
         </Link>
-      </header>
+      </section>
       <nav className="nav-menu">
         <div>
           <img src="/Assets/mile2-aseets/icons/1.svg" alt="1" />
@@ -64,10 +64,10 @@ export default function Home() {
             </div>
           </div>
         </container>
-        <main>
+        <main className="menu-footer">
           <p className="Satisfy">en çok paketlenen menüler</p>
           <p className="barlow">Acıktıran Kodlara Doyuran Lezzetler</p>
-          <div>
+          <div className=".menu-footer">
             <button>
               <img src="/Assets/mile2-aseets/icons/1.svg" alt="Heart Icon" />
               Ramen

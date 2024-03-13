@@ -23,8 +23,10 @@ const initialValues = {
 function App() {
   const [orderForm, setOrderForm] = useState(initialValues);
   return (
-    <div className="main-footer">
-      <h1 className="footer-title">Teknolojik Yemekler</h1>
+    <>
+      <header>
+        <h1 className="footer-title">Teknolojik Yemekler</h1>
+      </header>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -89,7 +91,7 @@ function App() {
           <p>asdasd</p>
         </div>
       </section>
-    </div>
+    </>
   );
 }
 

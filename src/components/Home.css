@@ -222,15 +222,21 @@ main {
   font-weight: bold;
 }
 
-main button img {
-  width: 1.5rem;
-  height: 1.5rem;
+.menu-footer button img {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.3rem;
+}
+
+.menu-footer button {
+  border-radius: 30px;
+  background-color: white;
   margin-right: 0.5rem;
 }
 
-main button {
-  border-radius: 30px;
-  background-color: white;
+.menu-footer button:hover {
+  background-color: #292929;
+  color: white;
 }
 .product-container {
   margin: 20px 0;
@@ -284,9 +290,4 @@ h6 {
 
 .product.three {
   background-image: url("../../Assets/mile2-aseets/pictures/food-3.png");
-}
-
-main button:nth-child(2) {
-  background-color: #292929;
-  color: white;
 }
