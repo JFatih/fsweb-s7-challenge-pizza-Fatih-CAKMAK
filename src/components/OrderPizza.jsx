@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./OrderPizza.css";
-import { Col, Form, FormGroup, Input, Label } from "reactstrap";
+import { Col, Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
 import CounterPizza from "./pizzacomponents/CounterPizza";
 import SummaryPizza from "./pizzacomponents/SummaryPizza";
 import { useEffect, useState } from "react";
@@ -20,12 +20,23 @@ const initialValues = {
   toplam: 0,
 };
 
+const errorMessages = {
+  ekMalzemeler: "4den fazla",
+  adı: "Ad için 3 den fazla karakter girin",
+  soyadı: "Soyad için 3 den fazla karakter girin",
+};
+
 export default function OrderPizza({ pizzaData }) {
   const [isValid, setIsValid] = useState(true);
   const [orderForm, setOrderForm] = useState(initialValues);
   const [toplamFiyat, setToplamFiyat] = useState(0);
   const [secimlerFiyat, setSecimlerFiyat] = useState(0);
   const [pizzaCount, setPizzaCount] = useState(1);
+  const [errors, setErrors] = useState({
+    adı: false,
+    soyadı: false,
+    ekMalzemeler: true,
+  });
 
   const history = useHistory();
 
@@ -82,6 +93,13 @@ export default function OrderPizza({ pizzaData }) {
         [name]: value,
       });
     }
+    if (name === "adı" || name === "soyadı") {
+      if (value.trim().length >= 3) {
+        setErrors({ ...errors, [name]: false });
+      } else {
+        setErrors({ ...errors, [name]: true });
+      }
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -100,8 +118,8 @@ export default function OrderPizza({ pizzaData }) {
 
   return (
     <>
-      <header>
-        <div className="header-content">
+      <section>
+        <div className="section-content">
           <nav className="nav-links">
             <NavLink
               to="/"
@@ -124,12 +142,12 @@ export default function OrderPizza({ pizzaData }) {
             </NavLink>
           </nav>
         </div>
-      </header>
+      </section>
       <Form onSubmit={handleSubmit} className="form-data">
         <section className="data-container">
           <h3>{pizzaData.pizaAdı}</h3>
           <div className="header-data">
-            <h2>{pizzaData.fiyat}₺</h2>
+            <p className="bold price">{pizzaData.fiyat}₺</p>
             <div className="header-rating">
               <p>{pizzaData.yıldız}⭐⭐⭐⭐⭐</p>
               <p>{pizzaData.yorum}</p>
@@ -170,7 +188,8 @@ export default function OrderPizza({ pizzaData }) {
             </FormGroup>
           </div>
           <FormGroup className="checkbox2">
-            <Label sm={3}>Ek Malzemeler</Label>
+            <Label sm={3}>Ek Malzemeler :</Label>
+            <p>En fazla 10 malzeme seçebilirsiniz</p>
             <Col>
               <div className="icerikler">
                 {pizzaData.ekMalzemeler.map((malzeme) => {
@@ -205,7 +224,9 @@ export default function OrderPizza({ pizzaData }) {
                 onChange={handleChange}
                 value={orderForm.adı}
                 data-cy="input-ad"
+                invalid={errors.adı}
               />
+              <FormFeedback>{errorMessages.adı}</FormFeedback>
             </FormGroup>
             <FormGroup>
               <Label for="soyadı">Soyadınız:</Label>
@@ -217,7 +238,9 @@ export default function OrderPizza({ pizzaData }) {
                 value={orderForm.soyadı}
                 onChange={handleChange}
                 data-cy="input-soyad"
+                invalid={errors.soyadı}
               />
+              <FormFeedback>{errorMessages.soyadı}</FormFeedback>
             </FormGroup>
           </FormGroup>
           <FormGroup className="order-note">
