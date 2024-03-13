@@ -124,40 +124,44 @@ export default function OrderPizza({
           </ul>
         </div>
       </nav>
-      <Form onSubmit={handleSubmit} className="form-data">
-        <section className="order-container">
+      <section className="order-background">
+        <div className="order-container">
           <h3>{pizzaData.pizzaAdı}</h3>
           <div className="order-data">
-            <h2>{pizzaData.fiyat}₺</h2>s
+            <p className="product-price">{pizzaData.fiyat}₺</p>
             <div className="header-rating">
               <p>{pizzaData.yıldız}⭐⭐⭐⭐⭐</p>
               <p>{pizzaData.yorum}</p>
             </div>
           </div>
           <p>{pizzaData.acıklama}</p>
-        </section>
+        </div>
+      </section>
+      <Form onSubmit={handleSubmit} className="form-data">
         <section className="choose-container">
           <div className="boyut-hamur">
             <FormGroup className="boyut-sec">
               <h5>Boyut Seç</h5>
-              {pizzaData.boyutSec.map((boyut) => {
-                return (
-                  <FormGroup check>
-                    <Input
-                      name="boyutSec"
-                      onChange={handleChange}
-                      id={boyut}
-                      type="radio"
-                      value={boyut}
-                      key={boyut}
-                      data-cy="data-boyut"
-                    />{" "}
-                    <Label for={boyut} check>
-                      {boyut}
-                    </Label>
-                  </FormGroup>
-                );
-              })}
+              <div className="boyut-secenekler">
+                {pizzaData.boyutSec.map((boyut) => {
+                  return (
+                    <FormGroup check className="boyut-secenek">
+                      <Input
+                        name="boyutSec"
+                        onChange={handleChange}
+                        id={boyut}
+                        type="radio"
+                        value={boyut}
+                        key={boyut}
+                        data-cy="data-boyut"
+                      />{" "}
+                      <Label for={boyut} check className="boyut-label">
+                        {boyut}
+                      </Label>
+                    </FormGroup>
+                  );
+                })}
+              </div>
             </FormGroup>
             <FormGroup className="hamur-sec">
               <h5>Hamur Seç</h5>
@@ -170,6 +174,11 @@ export default function OrderPizza({
           </div>
           <FormGroup className="checkbox2">
             <Label sm={3}>Ek Malzemeler</Label>
+            <Label>
+              {orderForm.ekMalzemeler.length === 0
+                ? "En fazla 10 malzeme seçebilirsiniz Seçim 5₺"
+                : "hata"}
+            </Label>
             <Col>
               <div className="icerikler">
                 {pizzaData.ekMalzemeler.map((malzeme) => {
