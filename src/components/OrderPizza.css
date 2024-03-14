@@ -1,4 +1,4 @@
-/* // NAVİGATİON /////////////////////////////////// */
+/* // ORDER-PAGE /////////////////////////////////// */
 .order-page {
   width: 100%;
   height: 20%;
@@ -89,13 +89,14 @@ p {
 }
 
 .boyut-secenek input[type="radio"] {
+  position: relative;
   width: 50px;
   height: 50px;
   background-color: #faf7f2;
 }
 
 .boyut-secenek Label {
-  display: inline-block;
+  position: absolute;
   margin-left: -30px;
   margin-top: 15px;
 }
@@ -114,6 +115,10 @@ p {
   display: flex !important;
   justify-content: space-around !important;
   align-items: center !important;
+}
+
+.boyut-hamur span {
+  color: #ce2829;
 }
 
 /* Checkbox /////////////////////////////////// */

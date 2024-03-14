@@ -87,7 +87,7 @@ function App() {
       <section className="copyRight">
         <div className="footer-copyright">
           <p>© 2023 Teknolojik Yemekler</p>
-          <FontAwesomeIcon icon="fa-brands fa-twitter" />
+          {/* <FontAwesomeIcon icon="fa-brands fa-twitter" /> */}
           <p>asdasd</p>
         </div>
       </section>

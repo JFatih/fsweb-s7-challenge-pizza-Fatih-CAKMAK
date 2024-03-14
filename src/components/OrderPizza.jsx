@@ -95,7 +95,6 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
         "https://reqres.in/api/pizza",
         orderForm
       );
-      console.log(response.data);
       history.push("/SuccessPage");
     } catch (error) {
       alert("İnternete bağlanılamadı");
@@ -151,7 +150,10 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
         <section className="choose-container">
           <div className="boyut-hamur">
             <FormGroup className="boyut-sec">
-              <h5>Boyut Seç</h5>
+              <h5>
+                Boyut Seç :{" "}
+                <span>{orderForm.boyutSec.length === 0 ? "*" : ""}</span>
+              </h5>
               <div className="boyut-secenekler">
                 {pizzaData.boyutSec.map((boyut) => {
                   return (
@@ -165,7 +167,7 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
                         key={boyut}
                         data-cy="data-boyut"
                       />{" "}
-                      <Label for={boyut} check className="boyut-label">
+                      <Label for={boyut} check>
                         {boyut}
                       </Label>
                     </FormGroup>
@@ -174,7 +176,10 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
               </div>
             </FormGroup>
             <FormGroup className="hamur-sec">
-              <h5>Hamur Seç</h5>
+              <h5>
+                Hamur Seç :{" "}
+                <span>{orderForm.hamurKalınlıgı.length === 0 ? "*" : ""}</span>
+              </h5>
               <HamurSec
                 hamurKalınlıgı={pizzaData.hamurKalınlıgı}
                 handleChange={handleChange}
@@ -183,11 +188,14 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
             </FormGroup>
           </div>
           <FormGroup className="checkbox2">
-            <Label sm={3}>Ek Malzemeler</Label>
+            <Label sm={3}>
+              <h5>Ek Malzemeler :</h5>
+            </Label>
             <Label>
-              {orderForm.ekMalzemeler.length === 0
-                ? "En fazla 10 malzeme seçebilirsiniz Seçim 5₺"
-                : "hata"}
+              {orderForm.ekMalzemeler.length >= 4 &&
+              orderForm.ekMalzemeler.length <= 10
+                ? "Yeterli sayıda malzeme seçtiniz"
+                : "En fazla 10 malzeme seçebilirsiniz Seçim 5₺"}
             </Label>
             <Col>
               <div className="icerikler">
