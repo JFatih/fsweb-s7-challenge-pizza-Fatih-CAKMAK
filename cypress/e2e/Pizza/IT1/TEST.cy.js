@@ -121,4 +121,16 @@ describe("Pizza Formu Testleri", () => {
     cy.wait(1000);
     cy.log(Cypress.$("#orderForm").val());
   });
+  it("Sipariş fiyatı doğru işleniyor mu ?", () => {
+    cy.visit("http://localhost:5173/OrderPizza");
+    cy.get("[data-cy='data-boyut']").last().click({ force: true });
+    cy.get("[data-cy='data-kalınlık']").last().click({ force: true });
+    cy.get("[data-cy='input-malzemeler']").eq(0).click();
+    cy.get("[data-cy='input-malzemeler']").eq(1).click();
+    cy.get("[data-cy='input-malzemeler']").eq(2).click();
+    cy.get("[data-cy='input-malzemeler']").eq(3).click();
+    cy.get("[data-cy='input-ad']").type("Fatih");
+    cy.get("[data-cy='input-soyad']").type("ÇAKMAK");
+    cy.get("[data-cy='toplam-fiyat']").should("contain", "105.5");
+  });
 });

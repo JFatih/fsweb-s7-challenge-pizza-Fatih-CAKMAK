@@ -10,7 +10,7 @@ export default function SummaryPizza({ isValid, secimlerFiyat, toplamFiyat }) {
         </div>
         <div>
           <p>Toplam</p>
-          <p>{toplamFiyat} ₺</p>
+          <p data-cy="toplam-fiyat">{toplamFiyat} ₺</p>
         </div>
       </div>
       <button
