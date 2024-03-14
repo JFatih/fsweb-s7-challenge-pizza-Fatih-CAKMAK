@@ -13,12 +13,7 @@ const errorMessages = {
   soyadı: "Soyad için 3 den fazla karakter girin",
 };
 
-export default function OrderPizza({
-  pizzaData,
-  initialValues,
-  setOrderForm,
-  orderForm,
-}) {
+export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
   const [isValid, setIsValid] = useState(true);
   const [toplamFiyat, setToplamFiyat] = useState(0);
   const [secimlerFiyat, setSecimlerFiyat] = useState(0);
@@ -103,7 +98,7 @@ export default function OrderPizza({
       console.log(response.data);
       history.push("/SuccessPage");
     } catch (error) {
-      alert(error);
+      alert("İnternete bağlanılamadı");
     }
   };
 
@@ -272,12 +267,8 @@ export default function OrderPizza({
           <div>
             <SummaryPizza
               isValid={isValid}
-              pizzaCount={pizzaCount}
-              orderForm={orderForm}
-              pizzaData={pizzaData.fiyat}
               secimlerFiyat={secimlerFiyat}
               toplamFiyat={toplamFiyat}
-              handleSubmit={handleSubmit}
             />
           </div>
         </section>

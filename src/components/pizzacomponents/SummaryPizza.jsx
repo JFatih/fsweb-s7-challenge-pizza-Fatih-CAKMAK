@@ -1,12 +1,5 @@
-import { Link } from "react-router-dom";
 import "../OrderPizza.css";
-import { Button, Form } from "reactstrap";
-export default function SummaryPizza({
-  isValid,
-  secimlerFiyat,
-  toplamFiyat,
-  handleSubmit,
-}) {
+export default function SummaryPizza({ isValid, secimlerFiyat, toplamFiyat }) {
   return (
     <section className="summary-container">
       <div className="summary-border">
