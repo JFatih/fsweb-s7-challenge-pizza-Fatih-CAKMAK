@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <header>
-        <h1 className="footer-title">Teknolojik Yemekler</h1>
+        <h1 className="header-title">Teknolojik Yemekler</h1>
       </header>
       <Switch>
         <Route exact path="/">

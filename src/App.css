@@ -2,11 +2,11 @@
 
 header {
   width: 100vw;
-  height: 15vw;
+  height: 100px;
   background-color: #ce2829;
 }
 
-.footer-title {
+.header-title {
   color: white;
   font-family: "Barlow";
   font-weight: bold;

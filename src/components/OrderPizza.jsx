@@ -1,13 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./OrderPizza.css";
-import { Alert, Col, Form, FormGroup, Input, Label } from "reactstrap";
+import { Col, Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
 import CounterPizza from "./pizzacomponents/CounterPizza";
 import SummaryPizza from "./pizzacomponents/SummaryPizza";
 import { useEffect, useState } from "react";
 import HamurSec from "./pizzacomponents/HamurSec";
 import axios from "axios";
-import { Route, useHistory } from "react-router-dom/cjs/react-router-dom";
-import { Router } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+
+const errorMessages = {
+  adı: "Ad için 3 den fazla karakter girin",
+  soyadı: "Soyad için 3 den fazla karakter girin",
+};
 
 export default function OrderPizza({
   pizzaData,
@@ -19,6 +23,10 @@ export default function OrderPizza({
   const [toplamFiyat, setToplamFiyat] = useState(0);
   const [secimlerFiyat, setSecimlerFiyat] = useState(0);
   const [pizzaCount, setPizzaCount] = useState(1);
+  const [errors, setErrors] = useState({
+    adı: false,
+    soyadı: false,
+  });
 
   const history = useHistory();
 
@@ -75,6 +83,13 @@ export default function OrderPizza({
         ...orderForm,
         [name]: value,
       });
+    }
+    if (name === "adı" || name === "soyadı") {
+      if (value.trim().length >= 3) {
+        setErrors({ ...errors, [name]: false });
+      } else {
+        setErrors({ ...errors, [name]: true });
+      }
     }
   };
 
@@ -213,7 +228,9 @@ export default function OrderPizza({
                 onChange={handleChange}
                 value={orderForm.adı}
                 data-cy="input-ad"
+                invalid={errors.adı}
               />
+              <FormFeedback>{errorMessages.adı}</FormFeedback>
             </FormGroup>
             <FormGroup>
               <Label for="soyadı">Soyadınız:</Label>
@@ -225,7 +242,9 @@ export default function OrderPizza({
                 value={orderForm.soyadı}
                 onChange={handleChange}
                 data-cy="input-soyad"
+                invalid={errors.soyadı}
               />
+              <FormFeedback>{errorMessages.soyadı}</FormFeedback>
             </FormGroup>
           </FormGroup>
           <FormGroup className="order-note">

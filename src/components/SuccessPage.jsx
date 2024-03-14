@@ -1,15 +1,13 @@
-import { Link } from "react-router-dom";
 import "./SuccessPage.css";
-import pizzaData from "./PizzaData";
 export default function SuccessPage({ orderForm }) {
   console.log(orderForm);
   return (
     <section className="success-page">
-      <header className="success-comment">
+      <section className="success-comment">
         <p className="baslık1">lezzetin yolda</p>
         <p className="baslık2">SİPARİŞ ALINDI</p>
         <div className="grey-line"></div>
-      </header>
+      </section>
       <section className="pizza-data">
         <p className="Bold Center">{orderForm.pizzaAdı}</p>
         <div>

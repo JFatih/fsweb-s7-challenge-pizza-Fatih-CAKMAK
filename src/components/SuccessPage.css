@@ -2,10 +2,11 @@
   font-weight: 500;
 }
 
+/* success-page ///////////// */
 .success-page {
   background-color: #ce2829;
   width: 100vw;
-  height: 100vh;
+  height: 700px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -19,14 +20,14 @@
   text-align: center;
 }
 
-header .baslık1 {
+section .baslık1 {
   font-family: "Satisfy";
   color: #fdc913;
   font-size: 1.5rem;
   margin-bottom: 0;
 }
 
-header .baslık2 {
+section .baslık2 {
   margin-top: 0;
   font-family: "Barlow";
   color: white;
@@ -37,9 +38,7 @@ header .baslık2 {
   border: 1px solid white;
 }
 
-.Center {
-  text-align: center;
-}
+/* pizza-data////////////// */
 
 .pizza-data div {
   font-size: small;
@@ -48,7 +47,7 @@ header .baslık2 {
   flex-direction: column;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 20vh;
+  width: 150px;
   align-content: center;
   margin: auto;
   font-size: 0.7rem;
@@ -57,8 +56,10 @@ header .baslık2 {
   font-family: Barlow;
 }
 
+/*  pizza-bill//////////////// */
+
 .pizza-bill {
-  width: 40vh;
+  width: 250px;
   border: 1px solid white;
   padding: 30px;
   display: flex;

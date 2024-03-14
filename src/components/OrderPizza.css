@@ -87,6 +87,7 @@ p {
   display: flex;
   gap: 0.5rem;
 }
+
 .boyut-secenek input[type="radio"] {
   width: 50px;
   height: 50px;
@@ -101,6 +102,18 @@ p {
 
 .boyut-secenek input[type="radio"]:checked {
   background-color: #fdc913;
+}
+
+.dropdown-toggle {
+  background-color: #faf7f2 !important;
+  margin-top: 12px;
+  color: black !important;
+  font-size: 1rem !important;
+  height: 50px !important;
+  width: 150px !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
 }
 
 /* Checkbox /////////////////////////////////// */
