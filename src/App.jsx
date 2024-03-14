@@ -5,7 +5,6 @@ import Home from "./components/Home";
 import SuccessPage from "./components/SuccessPage";
 import pizzaData from "./components/PizzaData";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const initialValues = {
   pizzaAdı: "",
@@ -27,6 +26,7 @@ function App() {
       <header>
         <h1 className="header-title">Teknolojik Yemekler</h1>
       </header>
+
       <Switch>
         <Route exact path="/">
           <Home />
@@ -42,6 +42,7 @@ function App() {
           <SuccessPage orderForm={orderForm} />
         </Route>
       </Switch>
+
       <footer className="footer-bottom">
         <section className="footer-section">
           <section className="footer-data">
@@ -88,7 +89,8 @@ function App() {
         <div className="footer-copyright">
           <p>© 2023 Teknolojik Yemekler</p>
           {/* <FontAwesomeIcon icon="fa-brands fa-twitter" /> */}
-          <p>asdasd</p>
+
+          <p>Twitter</p>
         </div>
       </section>
     </>

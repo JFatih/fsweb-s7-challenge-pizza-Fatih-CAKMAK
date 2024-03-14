@@ -5,10 +5,13 @@ export default function Home() {
   return (
     <>
       <section className="home-page">
-        <p>KOD ACIKTIRIR PİZZA, DOYURUR</p>
-        <Link to="/OrderPizza" className="btn" data-cy="OrderPage-Button">
-          <button>Acıktım</button>
-        </Link>
+        <div>
+          <p>fırsatı kaçırma</p>
+          <p>KOD ACIKTIRIR PİZZA, DOYURUR</p>
+          <Link to="/OrderPizza" className="btn" data-cy="OrderPage-Button">
+            <button>Acıktım</button>
+          </Link>
+        </div>
       </section>
       <nav className="nav-menu">
         <div>
@@ -37,7 +40,7 @@ export default function Home() {
         </div>
       </nav>
       <section className="home-body">
-        <container>
+        <section>
           <div className="camp1">
             <div className="background1"></div>
             <div className="background2"></div>
@@ -63,7 +66,7 @@ export default function Home() {
               <button className="camp-button">Sipariş Ver</button>
             </div>
           </div>
-        </container>
+        </section>
         <main className="menu-footer">
           <p className="Satisfy">en çok paketlenen menüler</p>
           <p className="barlow">Acıktıran Kodlara Doyuran Lezzetler</p>

@@ -1,9 +1,15 @@
+/* .main-containerin {
+  width: 100vw;
+  margin: auto;
+} */
+
 /* HEADER ///////////////////// */
 
 header {
-  width: 100vw;
-  height: 100px;
+  width: 100%;
+  padding: 20px 0 20px 0;
   background-color: #ce2829;
+  text-align: center;
 }
 
 .header-title {
@@ -14,13 +20,12 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
 }
 
 /* FOOTER ///////////////////// */
 
 .footer-bottom {
-  width: 100%;
+  width: 100vw;
   height: 300px;
   background-color: #292929;
   color: white;
@@ -64,8 +69,8 @@ header {
 }
 .copyRight {
   margin: auto;
-  height: 5vh;
-  width: 100vw;
+  height: 5%;
+  width: 100%;
   background-color: #292929;
   color: white;
   display: flex;
@@ -74,9 +79,23 @@ header {
   margin-bottom: 0 !important;
 }
 .footer-copyright {
-  width: 1000px;
+  width: 800px;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-content: center;
+}
+
+/*  MOBİLE RESPONSİVE */
+
+@media /* (min-width: 481px) and */ (max-width: 767px) {
+  .header-title {
+    font-size: 30px;
+  }
+  header {
+    width: 100%;
+  }
+  .footer-bottom {
+    width: 100%;
+  }
 }
