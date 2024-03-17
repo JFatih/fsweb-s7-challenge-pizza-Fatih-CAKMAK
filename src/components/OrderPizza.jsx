@@ -5,15 +5,18 @@ import CounterPizza from "./pizzacomponents/CounterPizza";
 import SummaryPizza from "./pizzacomponents/SummaryPizza";
 import { useEffect, useState } from "react";
 import HamurSec from "./pizzacomponents/HamurSec";
-import axios from "axios";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const errorMessages = {
   adı: "Ad için 3 den fazla karakter girin",
   soyadı: "Soyad için 3 den fazla karakter girin",
 };
 
-export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
+export default function OrderPizza({
+  pizzaData,
+  setOrderForm,
+  orderForm,
+  handleSubmit,
+}) {
   const [isValid, setIsValid] = useState(true);
   const [toplamFiyat, setToplamFiyat] = useState(0);
   const [secimlerFiyat, setSecimlerFiyat] = useState(0);
@@ -22,8 +25,7 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
     adı: false,
     soyadı: false,
   });
-
-  const history = useHistory();
+  const [fastDeli, setFastDeli] = useState(false);
 
   useEffect(() => {
     if (
@@ -47,6 +49,7 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
       orderForm.ekMalzemeler.length * 5 * pizzaCount +
         pizzaData.fiyat * pizzaCount
     );
+    console.log(orderForm);
   }, [orderForm]);
 
   useEffect(() => {
@@ -87,20 +90,6 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
       }
     }
   };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(
-        "https://reqres.in/api/pizza",
-        orderForm
-      );
-      history.push("/SuccessPage");
-    } catch (error) {
-      alert("İnternete bağlanılamadı");
-    }
-  };
-
   return (
     <>
       <nav className="order-page">
@@ -277,6 +266,9 @@ export default function OrderPizza({ pizzaData, setOrderForm, orderForm }) {
               isValid={isValid}
               secimlerFiyat={secimlerFiyat}
               toplamFiyat={toplamFiyat}
+              fastDeli={fastDeli}
+              handleChange={handleChange}
+              orderForm={orderForm}
             />
           </div>
         </section>

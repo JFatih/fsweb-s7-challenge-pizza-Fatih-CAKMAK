@@ -1,25 +1,33 @@
 import "./SuccessPage.css";
-export default function SuccessPage({ orderForm }) {
-  console.log(orderForm);
+export default function SuccessPage({ orderForm, orderData }) {
+  console.log(orderData);
   return (
     <section className="success-page">
       <section className="success-comment">
         <p className="baslık1">lezzetin yolda</p>
         <p className="baslık2">SİPARİŞ ALINDI</p>
+        <p>Sipariş Tarihi : {orderData.createdAt}</p>
         <div className="grey-line"></div>
       </section>
       <section className="pizza-data">
-        <p className="Bold Center">{orderForm.pizzaAdı}</p>
+        <p>
+          Sayın{" "}
+          <span className="bold">
+            {orderData.adı.toUpperCase()} {orderData.soyadı.toUpperCase()}
+          </span>{" "}
+          sipariş bilgileriniz:
+        </p>
+        <p className="Bold Center">{orderData.pizzaAdı}</p>
         <div>
           <p>
-            Boyut: <span className="Bold">{orderForm.boyutSec}</span>
+            Boyut: <span className="Bold">{orderData.boyutSec}</span>
           </p>
           <p>
-            Hamur: <span className="Bold">{orderForm.hamurKalınlıgı}</span>
+            Hamur: <span className="Bold">{orderData.hamurKalınlıgı}</span>
           </p>
           <p>
             Ek Malzemeler:{" "}
-            <span className="Bold">{orderForm.ekMalzemeler.join(", ")}</span>
+            <span className="Bold">{orderData.ekMalzemeler.join(", ")}</span>
           </p>
         </div>
       </section>
@@ -27,11 +35,11 @@ export default function SuccessPage({ orderForm }) {
         <p>Sipariş Toplamı</p>
         <div>
           <p>Seçimler</p>
-          <p>{orderForm.secimler} ₺</p>
+          <p>{orderData.secimler} ₺</p>
         </div>
         <div>
           <p>Toplam</p>
-          <p>{orderForm.toplam} ₺</p>
+          <p>{orderData.toplam} ₺</p>
         </div>
       </section>
     </section>

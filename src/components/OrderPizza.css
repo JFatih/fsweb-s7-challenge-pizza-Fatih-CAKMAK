@@ -237,3 +237,9 @@ p {
 .summary-border div:nth-child(3) {
   color: #ce2829;
 }
+.summary-container Input {
+  margin-left: 0;
+}
+.summary-container Label {
+  padding-left: 10px;
+}

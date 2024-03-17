@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import SuccessPage from "./components/SuccessPage";
 import pizzaData from "./components/PizzaData";
 import { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const initialValues = {
   pizzaAdı: "",
@@ -17,10 +19,27 @@ const initialValues = {
   adet: "",
   secimler: 0,
   toplam: 0,
+  hızlısiparis: false,
 };
 
 function App() {
   const [orderForm, setOrderForm] = useState(initialValues);
+  const [orderData, setOrderData] = useState({});
+  const history = useHistory();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://reqres.in/api/pizza",
+        orderForm
+      );
+      setOrderData(response.data);
+      history.push("/SuccessPage");
+    } catch (error) {
+      alert("İnternete bağlanılamadı");
+    }
+  };
+
   return (
     <>
       <header>
@@ -36,10 +55,11 @@ function App() {
             pizzaData={pizzaData}
             setOrderForm={setOrderForm}
             orderForm={orderForm}
+            handleSubmit={handleSubmit}
           />
         </Route>
         <Route exact path="/SuccessPage">
-          <SuccessPage orderForm={orderForm} />
+          <SuccessPage orderForm={orderForm} orderData={orderData} />
         </Route>
       </Switch>
 

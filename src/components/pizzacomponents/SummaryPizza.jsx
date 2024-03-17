@@ -1,5 +1,13 @@
+import { FormGroup, Input, Label } from "reactstrap";
 import "../OrderPizza.css";
-export default function SummaryPizza({ isValid, secimlerFiyat, toplamFiyat }) {
+export default function SummaryPizza({
+  isValid,
+  secimlerFiyat,
+  toplamFiyat,
+  fastDeli,
+  handleChange,
+  orderForm,
+}) {
   return (
     <section className="summary-container">
       <div className="summary-border">
@@ -11,6 +19,21 @@ export default function SummaryPizza({ isValid, secimlerFiyat, toplamFiyat }) {
         <div>
           <p>Toplam</p>
           <p data-cy="toplam-fiyat">{toplamFiyat} ₺</p>
+        </div>
+        <div>
+          <FormGroup check>
+            <Input
+              type="checkbox"
+              name="hızlısiparis"
+              id="hızlısiparis"
+              checked={fastDeli}
+              onChange={handleChange}
+              value={fastDeli}
+            />{" "}
+            <Label check for="hızlısiparis">
+              Hızlı teslimat +10₺{" "}
+            </Label>
+          </FormGroup>
         </div>
       </div>
       <button
