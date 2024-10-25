@@ -69,15 +69,15 @@ function App() {
             <div className="footer-info">
               <h3>Teknolojik Yemekler</h3>
               <div>
-                <img src="Assets/mile2-aseets/footer/icons/icon-1.png" />
+                <img src="/Assets/mile2-aseets/footer/icons/icon-1.png" />
                 <p>341 Londonderry Road, Istanbul Türkiye</p>
               </div>
               <div>
-                <img src="Assets/mile2-aseets/footer/icons/icon-2.png" />
+                <img src="/Assets/mile2-aseets/footer/icons/icon-2.png" />
                 <p>aciktim@teknolojikyemekler.com</p>
               </div>
               <div>
-                <img src="Assets/mile2-aseets/footer/icons/icon-3.png" />
+                <img src="/Assets/mile2-aseets/footer/icons/icon-3.png" />
                 <p>+902161234567</p>
               </div>
             </div>
@@ -94,12 +94,12 @@ function App() {
           <div className="footer-social">
             <p>Instagram</p>
             <div>
-              <img src="Assets/mile2-aseets/footer/insta/li-0.png" />
-              <img src="Assets/mile2-aseets/footer/insta/li-1.png" />
-              <img src="Assets/mile2-aseets/footer/insta/li-2.png" />
-              <img src="Assets/mile2-aseets/footer/insta/li-3.png" />
-              <img src="Assets/mile2-aseets/footer/insta/li-4.png" />
-              <img src="Assets/mile2-aseets/footer/insta/li-5.png" />
+              <img src="/Assets/mile2-aseets/footer/insta/li-0.png" />
+              <img src="/Assets/mile2-aseets/footer/insta/li-1.png" />
+              <img src="/Assets/mile2-aseets/footer/insta/li-2.png" />
+              <img src="/Assets/mile2-aseets/footer/insta/li-3.png" />
+              <img src="/Assets/mile2-aseets/footer/insta/li-4.png" />
+              <img src="/Assets/mile2-aseets/footer/insta/li-5.png" />
             </div>
           </div>
         </section>
