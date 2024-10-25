@@ -15,7 +15,7 @@ export default function Home() {
       </section>
       <nav className="nav-menu">
         <button>
-          <img src="/Assets/mile2-aseets/icons/1.svg" alt="1" />
+          <img src="./Assets/mile2-aseets/icons/1.svg" alt="1" />
           <p>Yeni! Kore</p>
         </button>
         <button>
