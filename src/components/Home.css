@@ -159,7 +159,7 @@
 }
 
 .camp2 .background1 {
-  background-image: url("food-3.png");
+  background-image: url("/public/food-3.png");
   position: absolute;
   background-position-x: 200px;
   background-position-y: 25px;
@@ -195,7 +195,7 @@
 }
 
 .camp3 .background1 {
-  background-image: url("food-1.png");
+  background-image: url("/public/food-1.png");
   position: absolute;
   background-position-x: 200px;
   background-position-y: 25px;
