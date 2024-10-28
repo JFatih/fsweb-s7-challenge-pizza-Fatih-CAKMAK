@@ -94,7 +94,7 @@ export default function OrderPizza({
     <>
       <nav className="order-page">
         <div className="order-content">
-          <img src="/Assets/mile2-aseets/pictures/form-banner.png" />
+          <img src="form-banner.png" />
           <ul className="nav-links">
             <li>
               <NavLink
