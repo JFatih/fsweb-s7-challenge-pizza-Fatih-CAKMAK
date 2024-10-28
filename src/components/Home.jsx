@@ -15,27 +15,27 @@ export default function Home() {
       </section>
       <nav className="nav-menu">
         <button>
-          <img src="./Assets/mile2-aseets/icons/1.svg" alt="1" />
+          <img src="Assets/mile2-aseets/icons/1.svg" alt="1" />
           <p>Yeni! Kore</p>
         </button>
         <button>
-          <img src="/Assets/mile2-aseets/icons/2.svg" alt="2" />
+          <img src="Assets/mile2-aseets/icons/2.svg" alt="2" />
           <p>Pizza</p>
         </button>
         <button>
-          <img src="/Assets/mile2-aseets/icons/3.svg" alt="3" />
+          <img src="Assets/mile2-aseets/icons/3.svg" alt="3" />
           <p>Burger</p>
         </button>
         <button>
-          <img src="/Assets/mile2-aseets/icons/4.svg" alt="4" />
+          <img src="Assets/mile2-aseets/icons/4.svg" alt="4" />
           <p>Kızartmalar</p>
         </button>
         <button>
-          <img src="/Assets/mile2-aseets/icons/5.svg" alt="5" />
+          <img src="Assets/mile2-aseets/icons/5.svg" alt="5" />
           <p>Fast food</p>
         </button>
         <button>
-          <img src="/Assets/mile2-aseets/icons/6.svg" alt="6" />
+          <img src="Assets/mile2-aseets/icons/6.svg" alt="6" />
           <p>Gazlı İçecekler</p>
         </button>
       </nav>

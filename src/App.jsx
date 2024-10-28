@@ -94,12 +94,12 @@ function App() {
           <div className="footer-social">
             <p>Instagram</p>
             <div>
-              <img src="/Assets/mile2-aseets/footer/insta/li-0.png" />
-              <img src="/Assets/mile2-aseets/footer/insta/li-1.png" />
-              <img src="/Assets/mile2-aseets/footer/insta/li-2.png" />
-              <img src="/Assets/mile2-aseets/footer/insta/li-3.png" />
-              <img src="/Assets/mile2-aseets/footer/insta/li-4.png" />
-              <img src="/Assets/mile2-aseets/footer/insta/li-5.png" />
+              <img src="/insta/li-0.png" />
+              <img src="/insta/li-1.png" />
+              <img src="/insta/li-2.png" />
+              <img src="/insta/li-3.png" />
+              <img src="/insta/li-4.png" />
+              <img src="/insta/li-5.png" />
             </div>
           </div>
         </section>
