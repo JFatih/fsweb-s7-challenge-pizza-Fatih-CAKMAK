@@ -1,6 +1,6 @@
 /*  // Home-Page // */
 .home-page {
-  background-image: url("home-banner.png");
+  background-image: url("/public/home-banner.png");
   background-size: cover;
   background-position: bottom;
   background-color: #ce2829;
@@ -103,7 +103,7 @@
 }
 
 .camp1 .background1 {
-  background-image: url("form-banner.png");
+  background-image: url("/public/form-banner.png");
   position: absolute;
   background-position-x: -10px;
   background-position-y: 5px;
@@ -115,7 +115,7 @@
   z-index: 1;
 }
 .camp1 .background2 {
-  background-image: url("food-1.png");
+  background-image: url("/public/food-1.png");
   position: absolute;
   background-position-x: -50px;
   background-position-y: 270px;
@@ -304,15 +304,15 @@ h6 {
 }
 
 .product.one {
-  background-image: url("food-1.png");
+  background-image: url("/public/food-1.png");
 }
 
 .product.two {
-  background-image: url("food-2.png");
+  background-image: url("/public/food-2.png");
 }
 
 .product.three {
-  background-image: url("food-3.png");
+  background-image: url("/public/food-3.png");
 }
 
 /*  Mobile */
